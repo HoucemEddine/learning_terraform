@@ -1,6 +1,6 @@
 resource "aws_internet_gateway" "igw-1" {
     vpc_id = "${aws_vpc.vpc-1.id}"
-    tags {
+    tags = {
         Name = "igw-1"
     }
 }
@@ -15,7 +15,7 @@ resource "aws_route_table" "public-route-table-1" {
         gateway_id = "${aws_internet_gateway.igw-1.id}" 
     }
     
-    tags {
+    tags = {
         Name = "public-route-table-1"
     }
 }
@@ -52,7 +52,7 @@ resource "aws_security_group" "ssh-allowed" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-    tags {
+    tags = {
         Name = "ssh-allowed"
     }
 }
